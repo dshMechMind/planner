@@ -22,6 +22,8 @@ public:
                status == PlannerStatus::EXACT_SOLUTION;
     }
 
+    void visualizeCallBack(std::function<void(const PlannerRecord&)> func) const { func(record_); }
+
 private:
     PlannerPtr allocPlanner(const PlannerContext& context);
 

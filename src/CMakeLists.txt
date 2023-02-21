@@ -19,13 +19,10 @@ set(INCLUDE_DIRS
 include_directories(${INCLUDE_DIRS})
 set(INSTALL_DIR ~/ws_moveit2/install/planner)
 
-message("install lib....")
 install(TARGETS Planner DESTINATION ${INSTALL_DIR}/lib)
 
-message("install include....")
 foreach(dir ${INCLUDE_DIRS})
     file(GLOB_RECURSE headers "${dir}/*.hpp")
     install(FILES ${headers} DESTINATION ${INSTALL_DIR}/include/${dir})
 endforeach()
-message("install include interface....")
 install(FILES planner_interface.hpp DESTINATION ${INSTALL_DIR}/include)
