@@ -1,13 +1,12 @@
 #pragma once
 
 #include "planner_data/planner_solution.hpp"
-#include "context/problem_definition.hpp"
-#include "context/space_information.hpp"
 #include "planner_data/planner_param.hpp"
 #include "planner_data/planner_record.hpp"
 #include "utility/export.hpp"
 #include "context/planner.hpp"
-// #include "visualizer/visual_tool.hpp"
+#include "context/problem_definition.hpp"
+#include "context/space_information.hpp"
 
 namespace planner {
 class EXPORT PlannerInterface
