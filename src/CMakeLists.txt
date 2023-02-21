@@ -6,7 +6,7 @@ set(INCLUDE_DIRS
     base
     context
     goal
-    planner_date
+    planner_data
     rrt_simple
     tools/checker
     tools/distance
