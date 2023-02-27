@@ -10,20 +10,10 @@
 #include "../tools/checker/state_validity_checker.hpp"
 #include "space_information.hpp"
 #include "problem_definition.hpp"
+#include "../planner_data/planner_context.hpp"
 
 namespace planner {
 PLANNER_CLASS_FORWARD(Planner)
-
-enum class PlannerType { RRTSimple };
-
-struct PlannerContext
-{
-    PlannerType plannerType;
-    SamplerParamBasePtr samplerParam;
-    PlannerParamBasePtr plannerParam;
-    PlannerGeneralParamters generalParam;
-    StateValidityCheckerPtr collisionChecker;
-};
 
 class Planner
 {
@@ -34,7 +24,6 @@ public:
 
     virtual const PlannerSolution& solve() = 0;
     virtual void updateRecord(PlannerRecord& record) = 0;
-    // virtual void visualize() = 0;
 
 protected:
     SpaceInformationPtr si_;

@@ -1,7 +1,7 @@
 #include "assert.h"
 #include "../../base/math_utility.hpp"
-#include "distance.hpp"
 #include "../../utility/log_utility.hpp"
+#include "distance.hpp"
 
 namespace planner {
 double Distance::distance(const State& q1, const State& q2) const

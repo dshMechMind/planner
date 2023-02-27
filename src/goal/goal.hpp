@@ -14,7 +14,6 @@ PLANNER_CLASS_FORWARD(GoalWithJointTolerance)
 
 enum class GoalType { SingleState, JointTolerance, BoundingBox, SO3Region, SE3 };
 
-
 class EXPORT Goal
 {
 public:
@@ -29,17 +28,6 @@ public:
 protected:
     const Bounds bounds_;
     const std::size_t dimension_;
-};
-
-class TestGoal : public Goal
-{
-public:
-    TestGoal(const Bounds& b) : Goal(b, GoalType::SingleState), b_(b), distance_(b) {}
-    void print() { std::cout << "TestGoal!!!!!!!!!!!!!!" << std::endl; }
-    bool isSatisfied(const State& q) const override { return true; }
-    std::optional<State> sample() override { return {}; }
-    Bounds b_;
-    Distance distance_;
 };
 
 class EXPORT GoalSingleState : public Goal

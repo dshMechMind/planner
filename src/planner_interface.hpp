@@ -32,7 +32,6 @@ private:
     PlannerPtr planner_;
     SpaceInformationPtr si_;
     PlannerRecord record_;
-    // VisualTool visualTool_;
     // TerminationCondition tc_;
 };
 }

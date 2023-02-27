@@ -1,7 +1,7 @@
 #pragma once
 
 #include <optional>
-#include "../../base/rng.hpp"
+#include "../../base/math_utility.hpp"
 #include "../../base/state.hpp"
 #include "../../base/bounds.hpp"
 #include "../../utility/class_forward.hpp"

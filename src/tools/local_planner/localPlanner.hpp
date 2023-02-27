@@ -1,10 +1,10 @@
 #pragma once
 
 #include <optional>
+#include "../../utility/class_forward.hpp"
 #include "../../base/path.hpp"
 #include "../distance/distance.hpp"
 #include "../checker/all_state_validity_checker.hpp"
-#include "../../utility/class_forward.hpp"
 
 namespace planner{
 PLANNER_CLASS_FORWARD(LocalPlannerBase)

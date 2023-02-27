@@ -1,5 +1,5 @@
 #include <math.h>
-#include "assert.h"
+#include <assert.h>
 #include "sampler.hpp"
 
 namespace planner {

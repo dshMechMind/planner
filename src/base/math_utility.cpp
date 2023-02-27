@@ -1,3 +1,4 @@
+#include <limits>
 #include "math_utility.hpp"
 
 namespace planner {

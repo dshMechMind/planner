@@ -44,10 +44,6 @@ bool PlannerInterface::plan(PlannerSolution& solution)
     record_.addPath(simplifierSolution.pathSimplified, "pathSimplified");
     record_.addPath(simplifierSolution.pathSmoothed, "pathSmoothed");
 
-    // auto rrt = std::static_pointer_cast<RRTSimple>(planner_);
-    // rrt->visualize(std::bind(&VisualTool::visualizeRRT, &visualTool_, std::placeholders::_1));
-
-    // record_.visualizeCallBack(std::bind(&VisualTool::visualizePlannerRecord, &visualTool_, std::placeholders::_1));
     return solved(solution.status);
 }
 }

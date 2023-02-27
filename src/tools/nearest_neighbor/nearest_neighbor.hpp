@@ -1,9 +1,9 @@
 #pragma once
 
+#include "../../utility/class_forward.hpp"
 #include "../../base/state.hpp"
 #include "../../base/tree.hpp"
 #include "../distance/distance.hpp"
-#include "../../utility/class_forward.hpp"
 
 namespace planner {
 PLANNER_CLASS_FORWARD(NearestNeighborBase)

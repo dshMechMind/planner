@@ -31,7 +31,6 @@ public:
     Bounds() {};
 
     void push_back(const Bound& bound) { bounds_.push_back(bound); }
-    // void setBounds(const std::vector<Bound>& bounds) { bounds_ = bounds; }
     const Bound operator[](std::size_t i) const { return bounds_[i]; }
     std::size_t size() const { return bounds_.size(); }
     std::optional<State> stateAffine2Bounds(const State& q) const;
@@ -44,6 +43,7 @@ public:
 private:
     // if theta can affine to [-b, b] return true, else return false
     std::optional<double> affine(double theta, double b) const;
+    
     std::vector<Bound> bounds_;
 };
 }

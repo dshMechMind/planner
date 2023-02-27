@@ -1,10 +1,10 @@
 #pragma once
 
 #include <algorithm>
-#include "../../base/rng.hpp"
+#include "../../utility/log_utility.hpp"
+#include "../../base/math_utility.hpp"
 #include "../../planner_data/planner_solution.hpp"
 #include "../local_planner/localPlanner.hpp"
-#include "../../utility/log_utility.hpp"
 
 namespace planner
 {

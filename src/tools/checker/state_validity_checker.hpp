@@ -12,7 +12,5 @@ class EXPORT StateValidityChecker
 public:
     virtual ~StateValidityChecker() = default;
     virtual bool isValid(const State& q) { return true; }; // TODO: const
-    void print()
-    { std::cout << "StateValidityChecker: plannerLib test!!!!!!!!!!!!" << std::endl; }
 };
 }

@@ -24,9 +24,7 @@ public:
         edgeCosts_.push_back(edgeCost);
     }
     Vertex* parent() { return parent_; }
-
     const Vertex* parent() const { return parent_; }
-
     const std::vector<VertexPtr>& children() const { return children_; }
 
     const State state;
@@ -50,8 +48,6 @@ struct Edge
 class Tree
 {
 public:
-    Tree() = default;
-
     void addVertex(const VertexPtr v, double edgeCost = 1.0) 
     { v->parent()->addChild(v, edgeCost); }
 
