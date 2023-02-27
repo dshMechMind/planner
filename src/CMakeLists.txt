@@ -5,7 +5,7 @@ file(GLOB_RECURSE SOURCE_FILES "*.cpp" "base/*.cpp"
     "tools/path_simplifier/*.cpp" "tools/sampler/*.cpp"
     "utility/*.cpp")
 # aux_source_directory(. DIR_LIB_SRCS)
-message("deubg____"${SOURCE_FILES})
+message("SOURCE_FILES: "${SOURCE_FILES})
 add_library (Shaohe_Planner STATIC ${SOURCE_FILES})
 include_directories(${EIGEN3_INCLUDE_DIRS})
 
