@@ -1,5 +1,12 @@
-aux_source_directory(. DIR_LIB_SRCS)
-add_library (Planner SHARED ${DIR_LIB_SRCS})
+file(GLOB_RECURSE SOURCE_FILES "*.cpp" "base/*.cpp" 
+    "context/*.cpp" "goal/*.cpp" "planner_data/*.cpp"
+    "rrt_simple/*.cpp" "tools/checker/*.cpp" "tools/distance/*.cpp"
+    "tools/local_planner/*.cpp" "tools/nearest_neighbor/*.cpp"
+    "tools/path_simplifier/*.cpp" "tools/sampler/*.cpp"
+    "utility/*.cpp")
+# aux_source_directory(. DIR_LIB_SRCS)
+message("deubg____"${SOURCE_FILES})
+add_library (Shaohe_Planner STATIC ${SOURCE_FILES})
 include_directories(${EIGEN3_INCLUDE_DIRS})
 
 set(INCLUDE_DIRS
@@ -19,7 +26,7 @@ set(INCLUDE_DIRS
 include_directories(${INCLUDE_DIRS})
 set(INSTALL_DIR ~/ws_moveit2/install/planner)
 
-install(TARGETS Planner DESTINATION ${INSTALL_DIR}/lib)
+install(TARGETS Shaohe_Planner DESTINATION ${INSTALL_DIR}/lib)
 
 foreach(dir ${INCLUDE_DIRS})
     file(GLOB_RECURSE headers "${dir}/*.hpp")

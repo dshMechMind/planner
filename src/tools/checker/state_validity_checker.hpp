@@ -2,15 +2,17 @@
 
 #include "../../base/state.hpp"
 #include "../../utility/class_forward.hpp"
+#include "../../utility/export.hpp"
 
 namespace planner {
 PLANNER_CLASS_FORWARD(StateValidityChecker)
 
-class StateValidityChecker
+class EXPORT StateValidityChecker
 {
 public:
-    StateValidityChecker() {}
     virtual ~StateValidityChecker() = default;
-    virtual bool isValid(const State& q) = 0; // TODO: const
+    virtual bool isValid(const State& q) { return true; }; // TODO: const
+    void print()
+    { std::cout << "StateValidityChecker: plannerLib test!!!!!!!!!!!!" << std::endl; }
 };
 }

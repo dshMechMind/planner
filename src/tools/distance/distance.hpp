@@ -5,6 +5,7 @@
 #include "../../utility/class_forward.hpp"
 #include "../../base/bounds.hpp"
 #include "../../base/state.hpp"
+#include "../../utility/export.hpp"
 
 namespace planner {
 PLANNER_CLASS_FORWARD(DistanceBase)
@@ -22,7 +23,7 @@ public:
     const Bounds bounds_;
 };
 
-class Distance : public DistanceBase
+class EXPORT Distance : public DistanceBase
 {
 public:
     Distance(const Bounds& b) : DistanceBase(b) {}

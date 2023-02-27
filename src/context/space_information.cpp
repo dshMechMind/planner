@@ -26,7 +26,7 @@ State SpaceInformationBase::sampleNear(const State& near, double distance)
 SpaceInformationBase::FlexibleTools SpaceInformation::init(const PlannerGeneralParamters& param, 
                                                            const SampleWithBiasParam& samplerParam, 
                                                            const ProblemDefinition& pd, 
-                                                           const CollisionCheckerPtr& CollisionChecker)
+                                                           const StateValidityCheckerPtr& CollisionChecker)
 {
     SpaceInformationBase::FlexibleTools tools;
     tools.distance = std::make_shared<Distance>(param.bounds);

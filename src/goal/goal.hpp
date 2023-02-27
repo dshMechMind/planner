@@ -5,6 +5,7 @@
 #include "assert.h"
 #include "../base/state.hpp"
 #include "../tools/distance/distance.hpp"
+#include "../utility/export.hpp"
 
 namespace planner {
 PLANNER_CLASS_FORWARD(Goal)
@@ -13,10 +14,12 @@ PLANNER_CLASS_FORWARD(GoalWithJointTolerance)
 
 enum class GoalType { SingleState, JointTolerance, BoundingBox, SO3Region, SE3 };
 
-class Goal
+
+class EXPORT Goal
 {
 public:
     Goal(const Bounds& b, GoalType goalType) : type(goalType), bounds_(b), dimension_(b.size()) {}
+    virtual ~Goal() = default;
 
     virtual bool isSatisfied(const State& q) const = 0;
     virtual std::optional<State> sample() = 0;
@@ -28,11 +31,23 @@ protected:
     const std::size_t dimension_;
 };
 
-class GoalSingleState : public Goal
+class TestGoal : public Goal
+{
+public:
+    TestGoal(const Bounds& b) : Goal(b, GoalType::SingleState), b_(b), distance_(b) {}
+    void print() { std::cout << "TestGoal!!!!!!!!!!!!!!" << std::endl; }
+    bool isSatisfied(const State& q) const override { return true; }
+    std::optional<State> sample() override { return {}; }
+    Bounds b_;
+    Distance distance_;
+};
+
+class EXPORT GoalSingleState : public Goal
 {
 public:
     GoalSingleState(const Bounds& b) : Goal(b, GoalType::SingleState), distance_(b) {}
     GoalSingleState(const Bounds& b, const State& g);
+    ~GoalSingleState() {}
 
     bool setGoal(const State& g);
     std::optional<State> sample() override { return q_; }
@@ -44,12 +59,13 @@ private:
 };
 
 // TODO: duplicated code woth GoalSingleState
-class GoalWithJointTolerance : public Goal
+class EXPORT GoalWithJointTolerance : public Goal
 {
 public:
     GoalWithJointTolerance(const Bounds& b, double tolerance) :
         Goal(b, GoalType::JointTolerance), distance_(b), tolerance_(tolerance) {}
     GoalWithJointTolerance(const Bounds& b, double tolerance, const State& g);
+    ~GoalWithJointTolerance() {}
 
     bool setGoal(const State& g);
     std::optional<State> sample() override { return q_; }

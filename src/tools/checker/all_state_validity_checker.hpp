@@ -5,11 +5,12 @@
 #include "dynamic_limit_checker.hpp"
 #include "bounds_checker.hpp"
 #include "../../utility/class_forward.hpp"
+#include "../../utility/export.hpp"
 
 namespace planner {
 PLANNER_CLASS_FORWARD(AllStateValidityChecker)
 
-class AllStateValidityChecker : public StateValidityChecker
+class EXPORT AllStateValidityChecker : public StateValidityChecker
 {
 public:
     AllStateValidityChecker(const Bounds& b, const StateValidityCheckerPtr& CollisionChecker)
