@@ -32,6 +32,7 @@ public:
 
     std::optional<State> validSample();
     State sample();
+    State sample(const State& goal);
     State sampleNear(const State& near, double distance);
 
     // const

@@ -18,6 +18,11 @@ State SpaceInformationBase::sample()
     return sampler_->sample();
 }
 
+State SpaceInformationBase::sample(const State& goal)
+{
+    return sampler_->sample(goal);
+}
+
 State SpaceInformationBase::sampleNear(const State& near, double distance)
 {
     return sampler_->sampleNear(near, distance);

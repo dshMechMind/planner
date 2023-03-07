@@ -1,6 +1,6 @@
 file(GLOB_RECURSE SOURCE_FILES "*.cpp" "base/*.cpp" 
     "context/*.cpp" "goal/*.cpp" "planner_data/*.cpp"
-    "rrt_simple/*.cpp" "tools/checker/*.cpp" "tools/distance/*.cpp"
+    "rrt_simple/*.cpp" "rrt_connect/*.cpp" "tools/checker/*.cpp" "tools/distance/*.cpp"
     "tools/local_planner/*.cpp" "tools/nearest_neighbor/*.cpp"
     "tools/path_simplifier/*.cpp" "tools/sampler/*.cpp"
     "utility/*.cpp")
@@ -15,6 +15,7 @@ set(INCLUDE_DIRS
     goal
     planner_data
     rrt_simple
+    rrt_connect
     tools/checker
     tools/distance
     tools/local_planner

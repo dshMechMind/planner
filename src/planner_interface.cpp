@@ -2,6 +2,8 @@
 #include "assert.h"
 #include "rrt_simple/rrt_simple.hpp"
 #include "rrt_simple/rrt_simple_param.hpp"
+#include "rrt_connect/rrt_connect_param.hpp"
+#include "rrt_connect/rrt_connect.hpp"
 #include "base/tree.hpp"
 #include "planner_interface.hpp"
 
@@ -25,7 +27,14 @@ PlannerPtr PlannerInterface::allocPlanner(const PlannerContext& context)
         si_ = std::make_shared<SpaceInformation>(context.generalParam, samplerParam, pd_, context.collisionChecker);
         RRTSimple rrt(si_, pd_, context);
         return std::make_shared<RRTSimple>(rrt);
-    }      
+    }
+    case PlannerType::RRTConnect:
+    {
+        auto samplerParam = *std::static_pointer_cast<const SampleWithBiasParam>(context.samplerParam).get();
+        si_ = std::make_shared<SpaceInformation>(context.generalParam, samplerParam, pd_, context.collisionChecker);
+        RRTConnect rrt(si_, pd_, context);
+        return std::make_shared<RRTConnect>(rrt);
+    }       
     }
     return nullptr;
 }

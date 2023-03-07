@@ -21,6 +21,7 @@ public:
         attempts(sampleAttempts), bounds(b) {}
 
     virtual State sample() = 0;
+    virtual State sample(const State& goal) { return {}; }
     virtual State sampleNear(const State& near, double distance) = 0;
 
     const unsigned int attempts;
@@ -55,6 +56,7 @@ public:
         SampleUniform(bounds, param.attempts), bias(param.bias), qCenter_(center)  {}
 
     State sample() override;
+    State sample(const State& goal) override;
     State sampleNear(const State& near, double distance) override;
     
     const double bias;

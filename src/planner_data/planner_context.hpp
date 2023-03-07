@@ -4,7 +4,7 @@
 #include "../tools/checker/state_validity_checker.hpp"
 
 namespace planner {
-enum class PlannerType { RRTSimple };
+enum class PlannerType { RRTSimple, RRTConnect };
 
 struct PlannerContext
 {

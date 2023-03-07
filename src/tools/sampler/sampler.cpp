@@ -36,6 +36,13 @@ State SampleWithBias::sample()
     return SampleUniform::sample();
 }
 
+State SampleWithBias::sample(const State& goal)
+{
+    if (rng_.uniformReal01() < bias)
+             return goal;
+    return SampleUniform::sample();
+}
+
 State SampleWithBias::sampleNear(const State& near, double distance)
 {
     if (rng_.uniformReal01() < bias)
