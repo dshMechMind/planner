@@ -16,6 +16,7 @@ double Distance::distance(const State& q1, const State& q2) const
     for (size_t i = 0; i < qm1.size(); i++)
     {
         double residuum = abs(normalizeAngle(qm2[i] - qm1[i])); // TODO bound = 720, compare distance among dis(s1, s2), dis(s1, bound_l), dis(s1, bound_h)
+        // double residuum = abs(qm2[i] - qm1[i]);
         if (distance < residuum)
             distance = residuum;
     }

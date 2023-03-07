@@ -32,7 +32,7 @@ Path PathSimplifier::reduceVertices(const Path& rawPath, double stepSize, unsign
     {
         int count = newPath.size();
         int maxN = count - 1;
-        int range = 1 + (int)(floor(0.5 + (double)count * rangeRatio));
+        int range = 1 + (int)(floor(0.5 + (double)count * rangeRatio)); // TODO: std::static_cast
 
         int p1 = rng_.uniformInt(0, maxN);
         int p2 = rng_.uniformInt(std::max(p1 - range, 0), std::min(maxN, p1 + range));

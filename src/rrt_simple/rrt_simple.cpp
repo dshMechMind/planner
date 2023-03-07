@@ -55,7 +55,7 @@ const PlannerSolution& RRTSimple::solve()
         {
             const VertexPtr vNew = validV.value();
             update(vNew);
-            // qLast = vNew->state; // TODO:
+            qLast = vNew->state; // TODO:
             if (goal_->isSatisfied(vNew->state))
                 status = Status::Reached;
             else
@@ -67,11 +67,13 @@ const PlannerSolution& RRTSimple::solve()
         if (status == Status::Reached)
         {
             solution_.status = PlannerStatus::EXACT_SOLUTION;
+            std::cout << "######## sample points: " << i << std::endl;
             return solution_;
         }
         i++;
     }
     solution_.status = PlannerStatus::TIMEOUT;
+    std::cout << "######## sample points: " << i << std::endl;
     return solution_;
 }
 
@@ -131,7 +133,7 @@ void RRTSimple::updateRecord(PlannerRecord& record)
 {
     record.start = start_;
     record.goal = currentGoal_;
-    record.addTree(tree_, "rrtTree");
+    // record.addTree(tree_, "rrtTree");
     record.addPath(solution_.path, "rawPath");
 }
 }

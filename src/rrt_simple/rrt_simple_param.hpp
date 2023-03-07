@@ -21,7 +21,7 @@ public:
 };
 }
 
-#define RRT_MAX_STEPS (unsigned int)30000
+#define RRT_MAX_STEPS (unsigned int)50000
 #define RRT_STEP_SIZE (double)0.02
 #define LOCAL_PLANNER_SETP_SIZE RRT_STEP_SIZE * 0.5
 #define GOAL_THRESHOLD (double)0.05

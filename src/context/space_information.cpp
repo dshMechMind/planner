@@ -31,6 +31,7 @@ SpaceInformationBase::FlexibleTools SpaceInformation::init(const PlannerGeneralP
     SpaceInformationBase::FlexibleTools tools;
     tools.distance = std::make_shared<Distance>(param.bounds);
     tools.sampler = std::make_shared<SampleWithBias>(param.bounds, pd.goal->sample().value(), samplerParam);
+    // tools.sampler = std::make_shared<SampleUniform>(param.bounds, samplerParam.attempts);
     tools.checker = std::make_shared<AllStateValidityChecker>(param.bounds, CollisionChecker);
     tools.localPlanner = std::make_shared<LocalPlanner>(tools.distance, tools.checker);
     return tools;
