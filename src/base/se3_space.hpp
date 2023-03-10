@@ -1,5 +1,6 @@
 #pragma once
 
+#include <optional>
 #include <Eigen/Geometry>
 #include "state.hpp"
 

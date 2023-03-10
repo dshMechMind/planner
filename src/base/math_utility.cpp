@@ -1,5 +1,8 @@
-#include <limits>
+#include <limits.h>
+#include <corecrt_math_defines.h>
 #include "math_utility.hpp"
+
+#define  _USE_MATH_DEFINES
 
 namespace planner {
 Eigen::Isometry3d rotateZAxis(double angle)
@@ -11,9 +14,9 @@ Eigen::Isometry3d rotateZAxis(double angle)
 }
 double sign(double x)
 {
-    if (x < -__DBL_MIN__)
+    if (x < -DBL_MIN)
         return -1.0;
-    if (x > __DBL_MIN__)
+    if (x > DBL_MIN)
         return 1.0;
     else return 0;
 }

@@ -6,8 +6,9 @@ file(GLOB_RECURSE SOURCE_FILES "*.cpp" "base/*.cpp"
     "utility/*.cpp")
 # aux_source_directory(. DIR_LIB_SRCS)
 message("SOURCE_FILES: "${SOURCE_FILES})
-add_library (Shaohe_Planner STATIC ${SOURCE_FILES})
-include_directories(${EIGEN3_INCLUDE_DIRS})
+add_library (sbmpl STATIC ${SOURCE_FILES})
+# include_directories(${EIGEN3_INCLUDE_DIRS})
+include_directories("D:/projects/dependencies/eigen3/include/eigen3")
 
 set(INCLUDE_DIRS
     base
@@ -25,9 +26,10 @@ set(INCLUDE_DIRS
     utility
 )
 include_directories(${INCLUDE_DIRS})
-set(INSTALL_DIR ~/ws_moveit2/install/planner)
 
-install(TARGETS Shaohe_Planner DESTINATION ${INSTALL_DIR}/lib)
+set(INSTALL_DIR D:/projects/dependencies/sbmpl)
+
+install(TARGETS sbmpl DESTINATION ${INSTALL_DIR}/lib)
 
 foreach(dir ${INCLUDE_DIRS})
     file(GLOB_RECURSE headers "${dir}/*.hpp")

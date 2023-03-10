@@ -1,5 +1,6 @@
 #pragma once
 
+#include <limits>
 #include <random>
 #include <Eigen/Geometry>
 
@@ -26,6 +27,6 @@ public:
 
 private:
     std::mt19937 generator_;
-    std::uniform_real_distribution<> uniDist_{0.0, std::nextafter(1.0, __DBL_MAX__)}; // [0, 1]
+    std::uniform_real_distribution<> uniDist_{0.0, std::nextafter(1.0, DBL_MAX)}; // [0, 1]
 };
 }
